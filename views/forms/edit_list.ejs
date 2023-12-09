@@ -1,0 +1,56 @@
+<h1 class="h2 px-1  text-primary">تحرير قوائم المستهلكين</h1>
+<div>
+   <div class="row mx-4">
+      <a href="/printList" class="col-1 btn btn-outline-success shadow-sm fw-bold">طباعة القائمة</a>
+      <a href="/printInvoices" class="col-1 btn btn-outline-success shadow-sm fw-bold">طباعة الفواتير</a>
+      <a href="#" class="col-7"></a>
+      <% if (previousPage !==null) { %>
+          <a href="/editMany/?page=<%= previousPage %>" class="col-1 mx-5 btn btn-outline-success shadow-sm"> &#8249;السابق
+          </a>
+          <% }else{ %>
+              <a href="#" class="col-1  mx-5 btn btn-outline-success shadow-sm"> &#8249;السابق </a>
+              <% } %>
+                  <% if (nextPage !==null) { %>
+                      <a href="/editMany/?page=<%= nextPage %>" class="col-1 btn btn-outline-primary shadow-sm">التالي
+                          &#8250; </a>
+                      <% }else{ %>
+                          <a href="#" class="col-1  mx-5 btn btn-outline-primary shadow-sm">التالي &#8250; </a>
+
+                          <% } %>
+
+
+  </div>
+
+
+
+
+   <% consumers.forEach(consumer=> { %>
+      <div class="row p-1">
+         <label for="no" class="col-1 text-secondary fw-bold"><%= consumer.no %></label>
+
+         <label for="name" class="col-1 text-secondary fw-bold">اسم المستهلك</label>
+         <input type="text" class="col-2 bg-secondary border rounded fw-bold text-light" name="name" value="<%=consumer.name%>">
+         <label for="address" class="col-1 text-secondary fw-bold">العنوان</label>
+         <input type="text" class="col-1 bg-secondary border rounded fw-bold text-light" name="address" value="<%=consumer.address%>">
+
+         <label for="old" class="col-1  text-secondary fw-bold">العداد القديم</label>
+         <input class="col-1  bg-secondary border rounded fw-bold text-light" type="text" name="old"
+            value=<%=consumer.consumptions[consumer.consumptions.length-1].oldConsumption%>>
+         <label for="old" class="col-1  text-secondary fw-bold">العداد الجديد</label>
+
+         <input class="col-1  bg-secondary border rounded fw-bold text-light" type="text" name="new"
+            value=<%=consumer.consumptions[consumer.consumptions.length-1].newConsumption%>>
+
+         <input type="submit"  class="col-1  btn btn-outline-secondary fw-bold" onclick="saveElement(this)" value="تعديل">
+      </div>
+     
+      <% }) %>
+         <% if (previousPage !==null) { %>
+            <a href="/editMany/?page=<%= previousPage %>" class="px-1 btn btn-outline-light"> &#8249;السابق </a>
+            <% } %>
+               <% if (nextPage !==null) { %>
+                  <a href="/editMany/?page=<%= nextPage %>" class="px-1 btn btn-outline-light">التالي &#8250; </a>
+                  <% } %>
+</div>
+
+<!--<script src="/public/script/script.js"></script>>!!-->

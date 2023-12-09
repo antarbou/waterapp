@@ -1,0 +1,23 @@
+<% consumptions.forEach((consumption,j)=> { %>
+    <br>
+    <input name="[consumptions][<%= j %>][periode]"
+        id="consumptions[<%= j %>][periode]" 
+        value="<%= consumption.periode%>" class="edit-zone">
+
+    <label for="consumptions[<%= j %>][newConsumption]">الجديد</label>
+    <input name="consumptions[<%= j %>][newConsumption]"
+        id="consumptions[<%= j %>][newConsumption]"
+        value="<%= consumption.newConsumption%>"
+        class="edit-zone">
+
+    
+    <label for="consumptions[<%= j %>][oldConsumption]">القديم</label>
+    <input name="consumptions[<%= j %>][oldConsumption]"
+        value="<%= consumption.oldConsumption %>" class="edit-zone">
+    
+    
+    <span>المجموع :</span>
+    
+
+    <% }) %>
+   

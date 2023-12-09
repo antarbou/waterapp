@@ -1,0 +1,7 @@
+<form action="/edit/<%= consumer._id %>" method="POST">
+    <input type="text" class="edit-zone" name="name" placeholder="اسم المستهلك" value="<%= consumer.name %>"> <br>
+    <input type="text" class="edit-zone" name="address" placeholder="العنوان" value="<%= consumer.address %>"><br>
+    <%- include('consumptions_form.ejs',{consumptions: consumer.consumptions,}) %>
+    <input type="submit" class="edit-zone" value="تأكيد">
+</form>
+<br>
